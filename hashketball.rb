@@ -1,4 +1,5 @@
 # Write your code here!
+require 'pry'
 def game_hash
   {
     :home => {
@@ -118,9 +119,23 @@ def game_hash
   }
 end
 
+def slam_dunk_increase
+  game_hash.each do |place, team| # home,away - team,colors,
+    if team == :home
+    team.each do |k, v| #team,colors,players - values,
+      if key == :players
+        v.each do |player_name, stats|
+            stats[:slam_dunks] + 1
+        end
+      end
+    end
+  end
+  end
+end
+
 def num_points_scored(person)
   arr = []
-  game_hash.each do |place, team|
+  game_hash.each do |place, team| 
     team.each do |key, values|
       if key == :players
         values.each do |player, stat|
@@ -140,7 +155,7 @@ end
 
 def shoe_size(person)
   arr = []
-  game_hash.each do |place, team|
+  game_hash.each do |place, team| 
     team.each do |key, values|
       if key == :players
         values.each do |player, stat|
